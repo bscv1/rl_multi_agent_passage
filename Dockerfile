@@ -1,5 +1,7 @@
 FROM nvidia/cudagl:11.1-devel-ubuntu20.04
 ARG DEBIAN_FRONTEND=noninteractive
+RUN rm /etc/apt/sources.list.d/cuda.list
+RUN rm /etc/apt/sources.list.d/nvidia-ml.list
 RUN apt update && apt install -y git python3 python3-pip vim cmake ffmpeg
 
 # Make image smaller by not caching downloaded pip pkgs
